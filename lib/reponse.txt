@@ -1,0 +1,14 @@
+//Si tu supprimes onTap :
+
+//Le ListTile devient désactivé : onTap == null signifie qu’il n’est pas interactif. Il n’y a plus d’effet d’encre ni de réaction au clic.
+
+1.8/Différence entre leading et trailing
+
+Ce sont deux emplacements optionnels du ListTile, situés aux deux extrémités de la ligne :
+
+leading est à l’début de la tuile, avant le titre. On y met en général une icône, un CircleAvatar ou une case à cocher.
+trailing est à la fin de la tuile, après le titre et le sous-titre. On y met en général une icône d’action, une note, un Switch, un menu ou une flèche comme Icons.chevron_right.
+
+« Début » et « fin » dépendent du sens de lecture : en français ou en anglais, leading est à gauche et trailing à droite, mais c’est inversé pour l’arabe ou l’hébreu (de droite à gauche). C’est pour cela que ces propriétés ne s’appellent pas left et right.
+
+Côté mise en page, leading et trailing prennent leur largeur naturelle, et le titre et le sous-titre occupent tout l’espace restant entre les deux. Pour un ListTile à une ou deux lignes, ils sont centrés verticalement ; avec isThreeLine: true, ils sont alignés en haut.
