@@ -34,3 +34,5 @@ Quand la liste est courte et fait partie d’une page qui défile déjà, par ex
 une fiche livre avec une image, une description, puis une liste de 5 avis ;
 un écran de paramètres avec plusieurs groupes de quelques tuiles ;
 un formulaire suivi d’une petite liste de résultats.
+3.5/avec leading : case, titre et sous-titre, icône ;
+avec trailing ou platform : icône, titre et sous-titre, case.
