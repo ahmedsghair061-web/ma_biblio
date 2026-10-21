@@ -12,3 +12,25 @@ trailing est à la fin de la tuile, après le titre et le sous-titre. On y met e
 « Début » et « fin » dépendent du sens de lecture : en français ou en anglais, leading est à gauche et trailing à droite, mais c’est inversé pour l’arabe ou l’hébreu (de droite à gauche). C’est pour cela que ces propriétés ne s’appellent pas left et right.
 
 Côté mise en page, leading et trailing prennent leur largeur naturelle, et le titre et le sous-titre occupent tout l’espace restant entre les deux. Pour un ListTile à une ou deux lignes, ils sont centrés verticalement ; avec isThreeLine: true, ils sont alignés en haut.
+2.1/Dans la console, tu verras une erreur du type :
+
+A RenderFlex overflowed by 312 pixels on the bottom.
+The relevant error-causing widget was: Column
+
+Le nombre de pixels varie selon la taille de l’écran et le nombre de tuiles. À l’écran, une bande jaune et noire (hachurée comme un panneau de chantier) apparaît en bas de l’application, avec le texte « BOTTOM OVERFLOWED BY 312 PIXELS ». Elle ne s’affiche qu’en mode debug ; en mode release, le contenu est simplement coupé sans avertissement.
+
+Pourquoi ?
+
+Une Column ne défile pas. Son rôle est de disposer ses enfants verticalement, avec la hauteur que lui donne son parent. Ici, le parent est le body du Scaffold, dont la hauteur est limitée à celle de l’écran moins l’AppBar.
+2.8/Pourquoi cette erreur ?
+
+Une Column donne à ses enfants une hauteur illimitée : elle les mesure d’abord, puis les empile. Elle ne leur impose pas de limite.
+Un ListView vertical essaie de prendre toute la hauteur disponible, puisqu’il doit défiler dans cet espace.
+« Toute la hauteur » d’un espace illimité est infinie : Flutter ne peut pas la calculer, d’où l’erreur.
+2.9/Dans quel cas l’utiliser ?
+
+Quand la liste est courte et fait partie d’une page qui défile déjà, par exemple :
+
+une fiche livre avec une image, une description, puis une liste de 5 avis ;
+un écran de paramètres avec plusieurs groupes de quelques tuiles ;
+un formulaire suivi d’une petite liste de résultats.

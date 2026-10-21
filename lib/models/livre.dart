@@ -14,6 +14,8 @@ class Livre {
     required this.note,
     required this.couleur,
   });
+
+  bool get nouveaute => null;
 }
 
 // Jeu de données de test
