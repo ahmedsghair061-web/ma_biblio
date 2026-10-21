@@ -36,3 +36,21 @@ un écran de paramètres avec plusieurs groupes de quelques tuiles ;
 un formulaire suivi d’une petite liste de résultats.
 3.5/avec leading : case, titre et sous-titre, icône ;
 avec trailing ou platform : icône, titre et sous-titre, case.
+4.3/Différence entre color et surfaceTintColor
+
+color remplace la couleur de fond de la carte. La couleur est appliquée telle quelle et ne dépend pas de l’élévation : à 0, 4 ou 12, le fond est identique.
+surfaceTintColor ne remplace rien : c’est une teinte superposée à la couleur de fond. Son intensité augmente avec elevation. Avec elevation: 0 tu ne vois pratiquement pas la teinte, avec 4 elle est discrète, et avec 12 la carte prend nettement la couleur choisie. C’est l’idée de Material 3 : plus une surface est « haute », plus elle prend la couleur d’accent du thème, au lieu de reposer sur l’ombre seule.
+4.5/InkWell détecte le clic sur la carte.
+
+
+
+Navigator.push() ouvre un nouvel écran.
+
+
+
+MaterialPageRoute définit la navigation.
+
+
+
+DetailScreen(livre: livre) transmet le livre sélectionné à l'écran de détails.
+4.8/StatefulWidget est nécessaire pour actualiser l'interface avec setState(). Le champ favori de Livre doit être modifiable, par exemple bool favori = false;

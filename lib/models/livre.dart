@@ -24,6 +24,10 @@ class Livre {
     this.nouveaute = false,
     this.lu = false,
   });
+
+  bool get favori => null;
+
+  set favori(bool favori) {}
 }
 
 // Jeu de données de test
